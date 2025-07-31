@@ -5,12 +5,12 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/components/ui/command";
+} from "./ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "./ui/popover";
 import { Box, Button, Text, useColorMode } from "@chakra-ui/react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useEffect, useState } from "react";

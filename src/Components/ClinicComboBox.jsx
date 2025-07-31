@@ -12,7 +12,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "./ui/popover";
 import { Button, useColorMode } from "@chakra-ui/react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useEffect, useState } from "react";
