@@ -7,12 +7,17 @@ import { Box, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 
 const getData = async () => {
-  await t();
-  const res = await GET(admin.token, "get_configurations");
-  if (res.response !== 200) {
-    throw new Error(res.message);
+  try {
+    await t();
+    const res = await GET(admin.token, "get_configurations");
+    if (res.response !== 200) {
+      throw new Error(res.message || "Failed to fetch configurations");
+    }
+    return res.data;
+  } catch (error) {
+    console.error("Failed to fetch configurations:", error);
+    throw error;
   }
-  return res.data;
 };
 
 export default function SettingsPage() {

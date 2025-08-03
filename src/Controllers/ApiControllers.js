@@ -30,14 +30,32 @@ const GET = async (token, endPoint) => {
     url: `${api}/${endPoint}`,
     headers: {
       Authorization: token ? GenerateToken(token) : "",
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
     },
+    timeout: 30000, // 30 seconds timeout
   };
 
   try {
+    console.log("Making GET request to:", `${api}/${endPoint}`);
     const response = await axios(config);
-    return response.data;
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error("Invalid response format");
+    }
   } catch (error) {
-    throw new Error(error);
+    if (error.response && error.response.status === 404) {
+      console.error("API endpoint not found:", `${api}/${endPoint}`);
+    } else {
+      console.error("API Error:", {
+        endpoint: endPoint,
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status
+      });
+    }
+    return handleSessionExpiration(error);
   }
 };
 
@@ -49,14 +67,27 @@ const ADD = async (token, endPoint, data) => {
     headers: {
       Authorization: GenerateToken(token),
       "Content-Type": "multipart/form-data",
+      'Accept': 'application/json',
     },
     data: data,
+    timeout: 30000,
   };
 
   try {
+    console.log("Making POST request to:", `${api}/${endPoint}`);
     const response = await axios(config);
-    return response.data;
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error("Invalid response format");
+    }
   } catch (error) {
+    console.error("API Error:", {
+      endpoint: endPoint,
+      message: error.message,
+      response: error.response?.data,
+      status: error.response?.status
+    });
     return handleSessionExpiration(error);
   }
 };
