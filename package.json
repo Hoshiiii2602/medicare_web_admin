@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "host": "vite --host",
-    "build": "vite build",
+    "build": "vite build && npm run postbuild",
+    "postbuild": "mkdir -p dist/admin && cp dist/index.html dist/admin/ && cp -r dist/assets dist/admin/ && sed -i '' 's|/admin/assets/|./assets/|g' dist/admin/index.html",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "lint:fix": "eslint --fix ."
