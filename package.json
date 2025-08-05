@@ -7,7 +7,7 @@
     "dev": "vite",
     "host": "vite --host",
     "build": "vite build && npm run postbuild",
-    "postbuild": "mkdir -p dist/admin && cp dist/index.html dist/admin/ && cp -r dist/assets dist/admin/ && node scripts/fix-assets.js",
+    "postbuild": "mkdir -p dist/admin && cp dist/index.html dist/admin/ && cp -r dist/assets dist/admin/ && cp dist/firebase-messaging-sw.js dist/admin/ && cp dist/logo.svg dist/admin/ && node scripts/fix-assets.js",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "lint:fix": "eslint --fix ."

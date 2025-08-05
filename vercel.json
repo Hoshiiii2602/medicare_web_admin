@@ -11,5 +11,37 @@
       "source": "/admin/(.*)",
       "destination": "/admin/index.html"
     }
+  ],
+  "routes": [
+    {
+      "src": "/admin/firebase-messaging-sw.js",
+      "dest": "/admin/firebase-messaging-sw.js",
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "src": "/admin/logo.svg",
+      "dest": "/admin/logo.svg",
+      "headers": {
+        "Content-Type": "image/svg+xml"
+      }
+    }
+  ],
+  "headers": [
+    {
+      "source": "/admin/firebase-messaging-sw.js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
   ]
 } 
