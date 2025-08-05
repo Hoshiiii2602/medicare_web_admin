@@ -1,4 +1,4 @@
-﻿const apiAddress = "http://194.233.67.229:443";
+﻿const apiAddress = import.meta.env.VITE_API_ADDRESS;;
 
 // Debug logging
 console.log("API Address:", apiAddress);
