@@ -1,42 +1,24 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
   "routes": [
-    {
-      "src": "/admin/assets/(.*)",
-      "dest": "/admin/assets/$1"
-    },
-    {
-      "src": "/admin/firebase-messaging-sw.js",
-      "dest": "/admin/firebase-messaging-sw.js",
-      "headers": {
-        "Content-Type": "application/javascript",
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "src": "/admin/logo.svg",
-      "dest": "/admin/logo.svg",
-      "headers": {
-        "Content-Type": "image/svg+xml"
-      }
-    },
-    {
-      "src": "/admin/favicon.ico",
-      "dest": "/admin/favicon.ico"
-    },
-    {
-      "src": "/admin/robots.txt",
-      "dest": "/admin/robots.txt"
-    },
+    { "handle": "filesystem" },
     {
       "src": "/admin/(.*)",
       "dest": "/admin/index.html"
     },
     {
-      "src": "/admin",
-      "dest": "/admin/index.html"
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "/admin" }
     }
   ]
 }

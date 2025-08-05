@@ -45,8 +45,9 @@ export default defineConfig({
   },
   base: "/admin/",
   build: {
-    outDir: "dist",
+    outDir: "dist/admin",
     assetsDir: "assets",
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: undefined,
