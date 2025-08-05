@@ -2,16 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/admin",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/admin/(.*)",
-      "destination": "/admin/index.html"
-    }
-  ],
   "routes": [
     {
       "src": "/admin/firebase-messaging-sw.js",
@@ -22,26 +12,19 @@
       }
     },
     {
+      "src": "/admin",
+      "dest": "/admin/index.html"
+    },
+    {
+      "src": "/admin/(.*)",
+      "dest": "/admin/index.html"
+    },
+    {
       "src": "/admin/logo.svg",
       "dest": "/admin/logo.svg",
       "headers": {
         "Content-Type": "image/svg+xml"
       }
     }
-  ],
-  "headers": [
-    {
-      "source": "/admin/firebase-messaging-sw.js",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "no-cache"
-        }
-      ]
-    }
   ]
-} 
+}
