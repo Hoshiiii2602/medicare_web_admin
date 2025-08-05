@@ -1,4 +1,4 @@
-﻿const apiAddress = import.meta.env.VITE_API_ADDRESS;;
+﻿const apiAddress = import.meta.env.VITE_API_ADDRESS;
 
 // Debug logging
 console.log("API Address:", apiAddress);

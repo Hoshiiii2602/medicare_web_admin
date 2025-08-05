@@ -43,7 +43,7 @@ export default defineConfig({
   define: {
     "process.env": process.env, // Ensure this is included
   },
-  base: "/admin",
+  base: process.env.NODE_ENV === "development" ? "/" : "/admin",
   build: {
     outDir: "dist",
     assetsDir: "assets",

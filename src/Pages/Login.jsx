@@ -143,10 +143,10 @@ export default function Login() {
       minH="100vh"
       align="center"
       justify="center"
-      bgImage={"/admin/login_bg.png"}
+      bgImage={process.env.NODE_ENV === "development" ? "/login_bg.png" : "/admin/login_bg.png"}
       position="relative"
       overflow="hidden"
-      background={"url('/admin/loginbg.png')"}
+      background={process.env.NODE_ENV === "development" ? "url('/loginbg.png')" : "url('/admin/loginbg.png')"}
       backgroundSize="cover"
       backgroundPosition="center"
     >
@@ -170,8 +170,8 @@ export default function Login() {
       >
         <VStack spacing={3} align="center">
           <Image
-            src={`/admin/logo_transation.png`}
-            fallbackSrc={"/admin/logo_transation.png"}
+            src={process.env.NODE_ENV === "development" ? "/logo_transation.png" : "/admin/logo_transation.png"}
+            fallbackSrc={process.env.NODE_ENV === "development" ? "/logo_transation.png" : "/admin/logo_transation.png"}
             alt={title?.value}
             boxSize="150px"
           />

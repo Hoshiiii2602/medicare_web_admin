@@ -112,7 +112,7 @@ export default function Topbar() {
       <Box display={"flex"} alignItems={"center"} gap={5}>
         {" "}
         <Image
-            src={"/admin/logo_transation.png"}
+            src={process.env.NODE_ENV === "development" ? "/logo_transation.png" : "/admin/logo_transation.png"}
             boxSize="50px"
           />
         <Text
@@ -153,7 +153,7 @@ export default function Topbar() {
               <Flex justify={"center"}>
                 <Avatar
                   src={`${imageBaseURL}/${admin.image}`}
-                  fallbackSrc="/admin/profile.png"
+                  fallbackSrc={process.env.NODE_ENV === "development" ? "/profile.png" : "/admin/profile.png"}
                   w={16}
                 />
               </Flex>

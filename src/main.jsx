@@ -11,7 +11,8 @@ import { BrowserRouter } from "react-router-dom";
 
 const publicUrl = import.meta.env.BASE_URL;
 
-if ("serviceWorker" in navigator) {
+// Only register service worker in production
+if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
   navigator.serviceWorker
     .register(`${publicUrl}/firebase-messaging-sw.js`)
     .then((registration) => {
@@ -35,7 +36,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/admin">
+      <BrowserRouter basename={process.env.NODE_ENV === "development" ? "/" : "/admin"}>
         <ChakraProvider theme={theme}>
           <ClinicProvider>
             <App />
