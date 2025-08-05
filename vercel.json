@@ -4,6 +4,10 @@
   "framework": "vite",
   "routes": [
     {
+      "src": "/admin/assets/(.*)",
+      "dest": "/admin/assets/$1"
+    },
+    {
       "src": "/admin/firebase-messaging-sw.js",
       "dest": "/admin/firebase-messaging-sw.js",
       "headers": {
@@ -12,19 +16,27 @@
       }
     },
     {
-      "src": "/admin",
-      "dest": "/admin/index.html"
+      "src": "/admin/logo.svg",
+      "dest": "/admin/logo.svg",
+      "headers": {
+        "Content-Type": "image/svg+xml"
+      }
+    },
+    {
+      "src": "/admin/favicon.ico",
+      "dest": "/admin/favicon.ico"
+    },
+    {
+      "src": "/admin/robots.txt",
+      "dest": "/admin/robots.txt"
     },
     {
       "src": "/admin/(.*)",
       "dest": "/admin/index.html"
     },
     {
-      "src": "/admin/logo.svg",
-      "dest": "/admin/logo.svg",
-      "headers": {
-        "Content-Type": "image/svg+xml"
-      }
+      "src": "/admin",
+      "dest": "/admin/index.html"
     }
   ]
 }

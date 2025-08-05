@@ -35,14 +35,14 @@ const queryClient = new QueryClient({
 const rootElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename={import.meta.env.MODE === "development" ? "/" : "/admin"}>
-        <ChakraProvider theme={theme}>
+    <BrowserRouter basename="/admin">
+      <ChakraProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
           <ClinicProvider>
             <App />
           </ClinicProvider>
-        </ChakraProvider>
-      </BrowserRouter>
-    </QueryClientProvider>
+        </QueryClientProvider>
+      </ChakraProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

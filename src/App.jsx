@@ -87,7 +87,7 @@ export default function App() {
       {" "}
       <Suspense fallback={<Loading />}>
         {" "}
-        {location.pathname === "/queue" ? (
+        {location.pathname === "/admin/queue" || location.pathname === "/queue" ? (
           <QueueList />
         ) : admin ? (
           <Box display={"flex"} width={"100%"}>
