@@ -143,10 +143,10 @@ export default function Login() {
       minH="100vh"
       align="center"
       justify="center"
-      bgImage={"/admin/login_bg.png"}      
+      bgImage={"https://i.postimg.cc/Dz1HT4QX/loginbg.png"}
       position="relative"
       overflow="hidden"
-      background={"url('/admin/loginbg.png')"}
+      background={"https://i.postimg.cc/Dz1HT4QX/loginbg.png"}
       backgroundSize="cover"
       backgroundPosition="center"
     >
@@ -170,8 +170,8 @@ export default function Login() {
       >
         <VStack spacing={3} align="center">
           <Image
-            src={'/admin/logo_transation.png'}
-            fallbackSrc={'/admin/logo_transation.png'}
+            src={'https://i.postimg.cc/vZJkktny/logo-transation.png'}
+            fallbackSrc={'https://i.postimg.cc/vZJkktny/logo-transation.png'}
             alt={title?.value}
             boxSize="150px"
           />
