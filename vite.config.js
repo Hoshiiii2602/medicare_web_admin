@@ -45,7 +45,7 @@ export default defineConfig({
   },
   base: "/admin/",
   build: {
-    outDir: "dist/admin",
+    outDir: "dist",
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
