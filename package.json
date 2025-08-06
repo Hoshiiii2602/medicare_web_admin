@@ -7,7 +7,7 @@
     "dev": "vite",
     "host": "vite --host",
     "build": "vite build && npm run postbuild",
-    "postbuild": "powershell -Command \"New-Item -ItemType Directory -Force -Path dist/admin; Copy-Item dist/index.html dist/admin/ -Force; if (Test-Path dist/admin/assets) { Remove-Item -Recurse -Force dist/admin/assets }; Copy-Item -Recurse dist/assets dist/admin/; if (Test-Path dist/firebase-messaging-sw.js) { Copy-Item dist/firebase-messaging-sw.js dist/admin/ -Force }; if (Test-Path dist/logo.svg) { Copy-Item dist/logo.svg dist/admin/ -Force }; (Get-Content dist/admin/index.html) -replace '/admin/assets/', './assets/' | Set-Content dist/admin/index.html\"",
+    "postbuild": "node scripts/postbuild.js",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "lint:fix": "eslint --fix ."
