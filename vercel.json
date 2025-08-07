@@ -12,11 +12,15 @@
   "routes": [
     { "handle": "filesystem" },
     {
+      "src": "/firebase-messaging-sw.js",
+      "dest": "/firebase-messaging-sw.js"
+    },
+    {
       "src": "/admin/(.*)",
       "dest": "/admin/index.html"
     },
     {
-      "src": "/(.*)",
+      "src": "/((?!firebase-messaging-sw\\.js).*)",
       "status": 301,
       "headers": { "Location": "/admin" }
     }
