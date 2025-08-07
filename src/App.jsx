@@ -83,27 +83,34 @@ export default function App() {
     );
   }, []);
   return (
-    <Suspense fallback={<Loading />}>
-      {location.pathname === "/admin/queue" || location.pathname === "/queue" ? (
-        <QueueList />
-      ) : admin ? (
-        <Box display={"flex"} width={"100%"}>
-          <Box>
-            <Sidebar />
+    <ErrorBoundary>
+      {" "}
+      <Suspense fallback={<Loading />}>
+        {" "}
+        {location.pathname === "/admin/queue" || location.pathname === "/queue" ? (
+          <QueueList />
+        ) : admin ? (
+          <Box display={"flex"} width={"100%"}>
+            {" "}
+            <Box>
+              {" "}
+              <Sidebar />{" "}
+            </Box>{" "}
+            <Box
+              maxH={"100vh"}
+              overflow={"scroll"}
+              w={"100vw"}
+              overflowX={"hidden"}
+            >
+              {" "}
+              <Topbar /> <Dashboard />{" "}
+            </Box>{" "}
           </Box>
-          <Box
-            maxH={"100vh"}
-            overflow={"scroll"}
-            w={"100vw"}
-            overflowX={"hidden"}
-          >
-            <Topbar /> <Dashboard />
-          </Box>
-        </Box>
-      ) : (
-        <Login />
-      )}
-      <ReactQueryDevtools initialIsOpen={false} />
-    </Suspense>
+        ) : (
+          <Login />
+        )}{" "}
+        <ReactQueryDevtools initialIsOpen={false} />{" "}
+      </Suspense>{" "}
+    </ErrorBoundary>
   );
 }
