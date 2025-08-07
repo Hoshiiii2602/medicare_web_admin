@@ -31,7 +31,7 @@ const ErrorPage = () => {
       alignItems="center"
     >
       <Image
-        src={`${baseURL}/broken.gif`}
+        src={window.location.pathname.startsWith('/admin') ? '/admin/broken.gif' : '/broken.gif'}
         alt="Error Illustration"
         boxSize="200px"
         mb={6}
