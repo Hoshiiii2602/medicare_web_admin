@@ -112,7 +112,7 @@ export default function Topbar() {
       <Box display={"flex"} alignItems={"center"} gap={5}>
         {" "}
         <Image
-            src={"/admin/logo_transation.png"}
+            src={"https://i.postimg.cc/vZJkktny/logo-transation.png"}
             boxSize="50px"
           />
         <Text
