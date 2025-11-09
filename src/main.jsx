@@ -9,12 +9,12 @@ import React from "react";
 import * as ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-const publicUrl = import.meta.env.BASE_URL;
+// const publicUrl = import.meta.env.BASE_URL;
 
 // // Only register service worker in production
 // if ("serviceWorker" in navigator && import.meta.env.MODE === "production") {
 //   navigator.serviceWorker
-//     .register(`https://vmi2087236.contaboserver.net/firebase-messaging-sw.js`)
+//     .register(`https://diamoitor.freelancer-vp.io.vn/firebase-messaging-sw.js`)
 //     .then((registration) => {
 //       console.log("Service Worker registered:", registration);
 //     })
